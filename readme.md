@@ -22,7 +22,7 @@
 error: (-215:Assertion failed) !_src.empty() in function 'cv::cvtColor'
 ```
 
-Caso ocorra o erro acima altere o local do arquivo <code>_bg.png_</code> no sistema para para <code>_C:\bg.png_</code> e altere a linha _50_ do arquivo <code>index.py</code>.
+Caso ocorra o erro acima altere o local do arquivo <code>_bg.png_</code> no sistema para para <code>_C:\bg.png_</code> e altere a linha _50_ do arquivo <code>index.py_</code>.
 
 ```py
 background_image = cv2.imread('c:/bg.png')
