@@ -47,7 +47,7 @@ while(1):
     imf = cv2.resize(result, (960, 540))
     mask = cv2.resize(mask, (960, 540))
 
-    background_image = cv2.imread('images/bg.jpg')
+    background_image = cv2.imread('C:/images/bg.png')
     background_image = cv2.cvtColor(background_image, cv2.COLOR_BGR2RGB)
 
     crop_background = background_image[0:960, 0:960]
