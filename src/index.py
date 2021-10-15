@@ -1,10 +1,8 @@
 import cv2
 import numpy as np
 
-
 def nothing(x):
     pass
-
 
 cap = cv2.VideoCapture(0)
 
@@ -18,11 +16,9 @@ cv2.createTrackbar('SMax', 'Set HSV', 0, 255, nothing)
 cv2.createTrackbar('VMin', 'Set HSV', 0, 255, nothing)
 cv2.createTrackbar('VMax', 'Set HSV', 0, 255, nothing)
 
-
 cv2.setTrackbarPos('HMax', 'Set HSV', 179)
 cv2.setTrackbarPos('SMax', 'Set HSV', 255)
 cv2.setTrackbarPos('VMax', 'Set HSV', 255)
-
 
 hMin = 0
 sMin = 0
@@ -52,13 +48,10 @@ while(1):
     mask = cv2.resize(mask, (960, 540))
 
     background_image = cv2.imread('C:/images/bg.png')
-    print(background_image)
     background_image = cv2.cvtColor(background_image, cv2.COLOR_BGR2RGB)
 
     crop_background = background_image[0:960, 0:960]
-
     crop_background[mask != 0] = [0, 0, 0]
-
     final_image = imf + crop_background  
 
     cv2.imshow('Web Cam', final_image)
