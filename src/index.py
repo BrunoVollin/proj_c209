@@ -24,8 +24,12 @@ cv2.setTrackbarPos('SMax', 'Set HSV', 255)
 cv2.setTrackbarPos('VMax', 'Set HSV', 255)
 
 
-hMin = sMin = vMin = hMax = sMax = vMax = 0
-phMin = psMin = pvMin = phMax = psMax = pvMax = 0
+hMin = 0
+sMin = 0
+vMin = 0
+hMax = 0
+sMax = 0
+vMax = 0
 
 while(1):
     _, image = cap.read()
@@ -43,16 +47,6 @@ while(1):
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, lower, upper)
     result = cv2.bitwise_and(image, image, mask=mask)
-
-    if((phMin != hMin) | (psMin != sMin) | (pvMin != vMin) | (phMax != hMax) | (psMax != sMax) | (pvMax != vMax)):
-        print("(hMin = %d , sMin = %d, vMin = %d), (hMax = %d , sMax = %d, vMax = %d)" % (
-            hMin, sMin, vMin, hMax, sMax, vMax))
-        phMin = hMin
-        psMin = sMin
-        pvMin = vMin
-        phMax = hMax
-        psMax = sMax
-        pvMax = vMax
 
     imf = cv2.resize(result, (960, 540))
     mask = cv2.resize(mask, (960, 540))
